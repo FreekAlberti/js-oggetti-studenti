@@ -53,7 +53,7 @@ $(document).ready(function() {
 
   var nome = prompt("Inserisci il nome dello studente");
   var cognome = prompt("Inserisci il cognome dello studente");
-  var eta = prompt("Inserisci l'età dello studente");
+  var eta = parseInt(prompt("Inserisci l'età dello studente"));
 
   var nuovoOggetto = {
     "nome" : nome,
@@ -72,4 +72,28 @@ $(document).ready(function() {
 
   console.log("***********************");
 
+  //HANDLEBARS
+
+  var source = $("#entry-template").html();
+  var template = Handlebars.compile(source);
+  for (var i = 0; i < studenti.length; i++) {
+    var conteggio = "***** Studente " + (i + 1) + " :";
+    var context = {
+      "header" : conteggio
+    };
+    var html = template(context);
+    $("#app").append(html);
+    for (var k in studenti[i]) {
+      var context = {
+        "body" : k + " : " + studenti[i][k]
+      };
+      var html = template(context);
+      $("#app").append(html);
+    }
+  }
+  var context = {
+    "stelline" : "***********************"
+  };
+  var html = template(context);
+  $("#app").append(html);
 });
