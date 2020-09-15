@@ -1,6 +1,3 @@
-// Dare la possibilità all’utente attraverso 3 prompt di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.
-
-
 $(document).ready(function() {
   // Creare un oggetto che descriva uno studente con le seguenti proprietà: nome, cognome e età. Stampare a schermo attraverso il for in tutte le proprietà.
 
@@ -47,6 +44,29 @@ $(document).ready(function() {
       if (k == "nome" || k == "cognome") {
         console.log(k + " : " + studenti[i][k]);
       }
+    }
+  }
+
+  console.log("***********************");
+
+  // Dare la possibilità all’utente attraverso 3 prompt di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.
+
+  var nome = prompt("Inserisci il nome dello studente");
+  var cognome = prompt("Inserisci il cognome dello studente");
+  var eta = prompt("Inserisci l'età dello studente");
+
+  var nuovoOggetto = {
+    "nome" : nome,
+    "cognome" : cognome,
+    "eta" : eta
+  };
+
+  studenti.push(nuovoOggetto);
+
+  for (var i = 0; i < studenti.length; i++) {
+    console.log("***** Studente " + (i + 1) + " :");
+    for (var k in studenti[i]) {
+      console.log(k + " : " + studenti[i][k]);
     }
   }
 
