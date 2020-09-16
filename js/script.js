@@ -16,6 +16,7 @@ $(document).ready(function() {
   // Creare un array di oggetti di studenti. Ciclare su tutti gli studenti e stampare per ognuno nome e cognome
 
   var studenti = [
+    studente,
     {
       "nome" : "Matteo",
       "cognome" : "Papalia",
@@ -40,11 +41,12 @@ $(document).ready(function() {
 
   for (var i = 0; i < studenti.length; i++) {
     console.log("***** Studente " + (i + 1) + " :");
-    for (var k in studenti[i]) {
-      if (k == "nome" || k == "cognome") {
-        console.log(k + " : " + studenti[i][k]);
-      }
-    }
+    // for (var k in studenti[i]) {
+      // if (k == "nome" || k == "cognome") {
+      //   console.log(k + " : " + studenti[i][k]);
+      console.log(studenti[i].nome + " " + studenti[i].cognome);
+      // }
+    // }
   }
 
   console.log("***********************");
